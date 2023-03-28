@@ -1,0 +1,23 @@
+package bit.basic.obj3;
+
+public class InstanceClass {
+	public static void main(String[] args) {
+		InstanceTemp it = new InstanceTemp;
+	}
+}
+
+class InstanceTemp implements InterfaceEx3 {
+
+	@Override
+	public void showInterEx1() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void InterfaceEx2Method() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

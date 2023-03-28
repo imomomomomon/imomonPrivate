@@ -1,0 +1,7 @@
+package bit.basic.control;
+
+public class ControlEx2 {
+	public static void main(String[] args) {
+		ControlEx2 ex = new ControlEx2();
+	}
+}

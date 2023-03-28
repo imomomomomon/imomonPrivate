@@ -1,0 +1,14 @@
+package bit.basic.obj1;
+
+public class SuperClass {
+	private int superClassValue;
+	
+	public SuperClass(int superClassValue) {
+		super();
+		this.superClassValue = superClassValue;
+	}
+
+	public void actionProcess() {
+		System.out.println("actionProcess");
+	}
+}

@@ -1,0 +1,26 @@
+package bit.basic.control;
+
+public class ControlEx2 {
+	
+	private void testingIfElse()
+	{
+		if (condition) {
+			
+		} else {
+
+		}
+		
+		if (condition) {
+			
+		} else if {
+
+		} else
+		{
+			
+		}
+	}
+	
+	public static void main(String[] args) {
+		ControlEx2 ex = new ControlEx2();
+	}
+}

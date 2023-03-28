@@ -1,0 +1,11 @@
+package bit.basic.obj3;
+
+public class AbstractSubClass extends AbstractSuperClass {
+
+	@Override
+	public void abstractMethodSP() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

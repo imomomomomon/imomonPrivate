@@ -1,0 +1,7 @@
+package bit.basic.obj2;
+
+public class ActionProcess {
+	public static void main(String[] args) {
+		
+	}
+}

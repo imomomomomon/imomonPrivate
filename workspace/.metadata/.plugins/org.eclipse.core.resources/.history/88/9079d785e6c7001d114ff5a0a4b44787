@@ -1,0 +1,72 @@
+package bit.test.demo;
+
+public class BridgeFuction {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class Player {
+	private CharSkill_Handler handler_skill;
+	
+	public Player(CharSkill_Handler handler) {
+		handler_skill = handler;
+	}
+	
+	public void Attack() {
+		handler_skill.Attack();
+	}
+	
+	public void Guard()	{
+		handler_skill.Guard();
+	}
+	
+	protected void Skill() {
+		handler_skill.Skill();
+	}
+}
+
+
+class CharSkill_Warrior implements CharSkill_Handler{
+
+	@Override
+	public void Attack() {
+		// TODO Auto-generated method stub
+		System.out.println("검을 휘두르다");
+	}
+
+	@Override
+	public void Guard() {
+		// TODO Auto-generated method stub
+		System.out.println("방패를 들다");
+	}
+
+	@Override
+	public void Skill() {
+		// TODO Auto-generated method stub
+		System.out.println("함성을 지르다");
+	}
+	
+}
+
+class CharSkill_Archer implements CharSkill_Handler{
+
+	@Override
+	public void Attack() {
+		// TODO Auto-generated method stub
+		System.out.println("활을 쏘다");
+	}
+
+	@Override
+	public void Guard() {
+		// TODO Auto-generated method stub
+		System.out.println("회피하다");
+	}
+
+	@Override
+	public void Skill() {
+		// TODO Auto-generated method stub
+		System.out.println("강력한 한방을 쏘다");
+	}
+	
+}

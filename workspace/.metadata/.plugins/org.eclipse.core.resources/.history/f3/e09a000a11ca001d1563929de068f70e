@@ -1,0 +1,21 @@
+package bit.basic.obj2;
+
+public class ObjectEx2 {
+	private static ObjectEx2 inst;
+	static {
+		inst = new ObjectEx2();
+	}
+	private ObjectEx2() {
+	}
+	public static ObjectEx2 getInst() {
+		return inst;
+	}
+	
+	private String msg;
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+}

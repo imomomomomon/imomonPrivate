@@ -1,0 +1,43 @@
+package bit.basic.obj1;
+
+public class Book {
+	private String author;
+	private int price;
+	private String publicsher;
+	private String regdate;
+	private String bookName;
+	
+	public Book() {
+		// TODO Auto-generated constructor stub
+		this("",0,"","","");
+	}
+	public Book(String author,int price, String publisher, 
+			String regdate, String bookName) {
+		// TODO Auto-generated constructor stub
+		this.author = author;
+		this.price = price;
+		this.publicsher = publisher;
+		this.regdate = regdate;
+		this.bookName = bookName;
+	}
+	public Book(Book obj) {
+		this.author = author;
+		this.price = price;
+		this.publicsher = publisher;
+		this.regdate = regdate;
+		this.bookName = bookName;
+	}
+	
+	@Override
+	public String toString() {//alt + shift + s + s
+		return "Book [author=" + author + ", price=" + price + ", publicsher=" + publicsher + ", regdate=" + regdate
+				+ ", bookName=" + bookName + "]";
+	}
+	public static void main(String[] args) {
+		Book a = new Book();
+		Book b = new Book("이도경",100000,"서점","1993-07-07","인생");
+		
+		System.out.println(a.toString());
+		System.out.println(b.toString());
+	}
+}

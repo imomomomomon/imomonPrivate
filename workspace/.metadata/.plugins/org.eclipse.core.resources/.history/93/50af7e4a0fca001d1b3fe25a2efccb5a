@@ -1,0 +1,15 @@
+package bit.basic.obj2;
+
+public class ObjectEx1 {
+	private final static int cnt;
+	static {
+		cnt = 90;
+	}
+	public ObjectEx1() {
+		
+	}
+	public static void main(String[] args) {
+		System.out.println(ObjectEx1.cnt;);
+		ObjectEx1 o = new ObjectEx1();//cnt
+	}
+}

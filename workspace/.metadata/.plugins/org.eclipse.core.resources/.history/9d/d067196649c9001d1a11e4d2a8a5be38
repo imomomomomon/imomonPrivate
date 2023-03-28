@@ -1,0 +1,24 @@
+package bit.basic.obj1;
+
+public class Book {
+	private String author;
+	private int price;
+	private String publicsher;
+	private String regdate;
+	private String bookName;
+	
+	public Book() {
+		// TODO Auto-generated constructor stub
+	}
+	public Book(String author,int price, String publisher, 
+			String regdate, String bookName) {
+		// TODO Auto-generated constructor stub
+		this.author = author;
+	}
+	
+	public static void main(String[] args) {
+		Book b = new Book();
+		
+		System.out.println(new Book().author);
+	}
+}

@@ -1,0 +1,10 @@
+package bit.basic.variable;
+/*변수 (local, 
+	instance, 
+	static)
+	*/
+public class VariableEx1 {
+	public static void main(String[] args) {
+		
+	}
+}

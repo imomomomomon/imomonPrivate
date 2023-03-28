@@ -1,0 +1,7 @@
+package bit.test.demo;
+
+public interface bridgeFuction_handler {
+	public void print01();
+	public void print02();
+	public void print03();
+}

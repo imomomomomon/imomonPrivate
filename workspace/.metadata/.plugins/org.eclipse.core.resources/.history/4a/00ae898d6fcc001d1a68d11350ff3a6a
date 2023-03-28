@@ -1,0 +1,8 @@
+package bit.test.demo;
+
+public class ActionTest2 {
+	public static void main(String[] args) {
+	}
+	String w = "오류의 원인이 무엇일까요?";
+	String d = w.substring(0,3);
+}

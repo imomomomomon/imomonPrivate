@@ -1,0 +1,8 @@
+package bit.basic.obj3;
+
+public abstract class AbstrackSuperClass {
+	public void abstrackSuperMethod() {
+		System.out.println("abstrackSuperMethod");
+	}
+	public void abstractMethodSP();
+}

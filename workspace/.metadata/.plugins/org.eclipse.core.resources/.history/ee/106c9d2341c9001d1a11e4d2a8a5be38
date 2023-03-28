@@ -1,0 +1,7 @@
+package bit.basic.obj1;
+//overloading 과적
+public class ObjectEx2 {
+	public static void main(String[] args) {
+		ObjectEx2 o = new ObjectEx2();
+	}
+}

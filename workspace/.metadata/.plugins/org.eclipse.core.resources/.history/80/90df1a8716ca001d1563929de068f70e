@@ -1,0 +1,11 @@
+package bit.basic.obj2;
+
+public class LoginAction extends Action {
+
+	@Override
+	public ActionForward execute() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

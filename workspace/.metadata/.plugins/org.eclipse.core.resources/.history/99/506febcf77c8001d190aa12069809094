@@ -1,0 +1,97 @@
+package bit.basic.array;
+
+public class ArrayEx3 {
+	public static void main(String[] args) {
+		customArr arrC = new customArr();
+		arrC.print();
+	}
+}
+
+class customArr
+{
+	private int[] arrInt = new int[5];
+	private int iIndex = 0;
+	
+	public void print() {
+		
+		for(int i = 0; i < 5; i++)
+			push((int)(Math.random()*100));
+		
+		{
+			for(int i = 0; i < 7; i++)
+				System.out.printf("%4d",arrInt[i]);
+		}
+	}
+	public void push(int data) {
+		
+		if(isFull())
+			increment();
+		
+		arrInt[iIndex] = data;
+		iIndex++;
+	}
+	
+	public int search(int index) {
+		
+		if(isEmpty()) return 0;
+		if(index > iIndex) return 0;
+		
+		return arrInt[index];
+	}
+	
+	public boolean modify(int index, int data) {
+		
+		if(search(index) == 0)
+		{
+			arrInt[index] = data;
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean delete() {
+		if(isEmpty()) return false;
+		
+		arrInt[iIndex] = 0;
+		if(iIndex > 0) iIndex--;
+		
+		return true;
+	}
+	
+	public boolean delete(int index) {
+		if(isEmpty()) return false;
+		if(index > iIndex) return false;
+		
+		for(int i = index; i <= iIndex; i++ ) {
+			arrInt[i] = arrInt[i+1];
+		}
+		arrInt[iIndex] = 0;
+		iIndex--;
+		
+		return true;
+	}
+	
+	public boolean isFull() {
+		if(iIndex == arrInt.length - 1) {
+			
+		}
+			return true;
+		return false;
+	}
+	public boolean isEmpty() {
+		if(iIndex == -1)
+			return true;
+		return false;
+	}
+	
+	private void increment() {
+		
+		int[] temp = new int[arrInt.length * 2];
+		
+		for(int i:arrInt)
+			temp[i] = arrInt[i];
+		
+		arrInt = temp;
+	}
+}

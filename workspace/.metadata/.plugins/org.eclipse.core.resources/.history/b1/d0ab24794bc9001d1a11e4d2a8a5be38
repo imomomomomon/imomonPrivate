@@ -1,0 +1,8 @@
+package bit.basic.obj1;
+
+public class Member {
+}
+
+class MemberInfo {
+	private String name;
+}

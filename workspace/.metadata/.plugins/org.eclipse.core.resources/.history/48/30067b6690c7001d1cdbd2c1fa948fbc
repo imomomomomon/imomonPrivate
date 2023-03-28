@@ -1,0 +1,12 @@
+package bit.basic.variable;
+	/*
+	 * Variable Scope(변수 영역)
+	 * local -> Stack 지역, 
+	 * instance -> Heap 지역, 
+	 * static -> Method(static, class) 지역
+	*/
+public class VariableEx1 {
+	public static void main(String[] args) {
+		int iVariable = 0;
+	}
+}

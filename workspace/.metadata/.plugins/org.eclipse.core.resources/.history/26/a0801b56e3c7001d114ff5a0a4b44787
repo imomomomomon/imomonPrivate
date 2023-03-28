@@ -1,0 +1,11 @@
+package bit.test.demo;
+
+public class ActionTest2 {
+	public static void main(String[] args) {
+		
+	}
+}
+
+virtual class fuctionObject{
+	virtual void Activate(void)=0;
+}

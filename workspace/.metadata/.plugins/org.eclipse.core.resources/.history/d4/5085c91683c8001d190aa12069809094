@@ -1,0 +1,25 @@
+package bit.basic.array;
+
+import java.util.Arrays;
+
+public class ArrayEx4 {
+	
+	public double[] getValue(int ...x) {
+		return new double[] {Math.sqrt(x[0]),Math.sqrt(x[1]),Math.sqrt(x[2])};
+	}
+	public void addValue(int []x) {
+		System.out.println("1차원");
+	} // 1차원
+	public void addValue(int [][]x) {
+		
+	} // 다차원
+	public static void main(String[] args) {
+		ArrayEx4 a = new ArrayEx4();
+		System.out.println(Arrays.toString(a.getValue(10,20,30)));
+		for(double v:a.getValue(20,30,40))
+			System.out.printf("%.2f ",v);
+		System.out.println();
+		a.addValue(new int[] {10,20,30,40});
+
+	}
+}

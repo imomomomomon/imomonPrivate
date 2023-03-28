@@ -1,0 +1,12 @@
+package bit.basic.array;
+
+public class ArrayEx2 {
+	public void methodArray1(int x) {
+		
+	}
+	public static void main(String[] args) {
+		ArrayEx2 a = new ArrayEx2();
+		
+		int[] x = {10,20,30,40}
+	}
+}

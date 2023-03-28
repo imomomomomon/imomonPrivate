@@ -1,0 +1,7 @@
+package bit.test.demo;
+
+public interface CharSkill_Handler {
+	public void Attack();
+	public void print02();
+	public void print03();
+}

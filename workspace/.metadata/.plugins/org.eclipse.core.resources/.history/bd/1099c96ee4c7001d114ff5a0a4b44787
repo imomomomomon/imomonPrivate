@@ -1,0 +1,7 @@
+package bit.test.demo;
+
+public interface bridgeFuction_handler {
+	public void customFuciton01();
+	public void customFuciton01();
+	public void customFuciton01();
+}

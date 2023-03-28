@@ -1,0 +1,8 @@
+package bit.basic.obj3_2;
+
+public interface SetEx {//순서가 없고 중복불가
+	public boolean isEmpty();
+	public boolean isFull();
+	public void clear();
+	public void remove();
+}

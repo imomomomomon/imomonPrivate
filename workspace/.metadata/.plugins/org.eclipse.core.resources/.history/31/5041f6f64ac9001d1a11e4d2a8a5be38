@@ -1,0 +1,18 @@
+package bit.basic.obj1;
+
+public class Book {
+	
+	public static void main(String[] args) {
+		Book a = new Book();
+		Book b = new Book("이도경",100000,"서점","1993-07-07","인생");
+		Book c = new Book(b);//복사생성자
+		
+		System.out.println(a.toString());
+		System.out.println(b.toString());
+		System.out.println(c.toString());
+	}
+}
+
+class BookInfo {
+	
+}

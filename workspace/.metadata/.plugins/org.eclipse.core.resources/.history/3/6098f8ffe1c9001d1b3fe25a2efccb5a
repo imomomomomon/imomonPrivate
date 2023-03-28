@@ -1,0 +1,35 @@
+package bit.basic.obj1;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Vector;
+
+public class ObjectEx4 {
+	public InputStream getBufferInput() throws FileNotFoundException {
+		return new FileInputStream(new File(""));
+	}
+	public ArrayList getList() {
+		return new Vector<E>();
+	}
+	public static void main(String[] args) {
+		ObjectEx4 o = new ObjectEx4();
+		o.methodObj1();
+	}
+
+	private void methodObj1() {
+		// TODO Auto-generated method stub
+		System.out.println("Data:");
+		BufferedReader br = null;
+//		BufferedInputStream bis = null;
+		try {
+//			bis = new BufferedInputStream(
+//					new FileInputStream(
+//						new File(
+//							new StringBuffer().toString())));
+//			br = new BufferedReader(System.in);
+			System.out.println(System.in);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

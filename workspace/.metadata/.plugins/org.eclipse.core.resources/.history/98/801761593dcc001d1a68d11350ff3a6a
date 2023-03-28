@@ -1,0 +1,9 @@
+package bit.basic.obj3;
+
+//완전 추상클래스
+public interface InterfaceEx1 {
+	int data;
+	public default void methodDefault() {
+		
+	}
+}

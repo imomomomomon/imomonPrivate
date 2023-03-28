@@ -1,0 +1,20 @@
+package bit.basic.operator;
+
+/*
+ * 최 우선 () .(닷지) [](블릿)
+ * 
+ */
+
+public class OperatorEx1 {
+	
+	public int FirstOperator(int ix, int iy, int iz, int ik) {
+		return ix > iy ? (ix+iy*iz+ik):(ix+iy)*iz+ik; 
+	}
+	public int FirstOperator(int ix, int iy) {
+		return ix > iy ? (ix+iy*iz+ik):(ix+iy)*iz+ik; 
+	}
+	public static void main(String[] args) {
+		OperatorEx1 o1 = new OperatorEx1();
+		o1.FirstOperator(1,2,3,4);
+	}
+}

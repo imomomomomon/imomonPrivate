@@ -1,0 +1,13 @@
+package bit.basic.control;
+
+public class ControlEx2 {
+	
+	private void testingIfElse()
+	{
+		int num1,num2 = 0;
+	}
+	
+	public static void main(String[] args) {
+		ControlEx2 ex = new ControlEx2();
+	}
+}

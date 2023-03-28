@@ -1,0 +1,19 @@
+package bit.basic.obj1;
+
+public class SuperMain {
+	public static void main(String[] args) {
+//		SuperClass[] classes = new SuperClass[3];
+//		{
+//			classes[0] = new SubClass01();
+//			classes[1] = new SubClass02();
+//			classes[2] = new SubClass03();
+//		}
+		
+		SubClass01 s1 = new SubClass01(10,20);
+		System.out.println(s1);
+		
+		String str1="abc";
+		String str2="abc";
+		String str3 = new String("def");
+	}
+}

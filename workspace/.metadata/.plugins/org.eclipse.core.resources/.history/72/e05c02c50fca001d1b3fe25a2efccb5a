@@ -1,0 +1,11 @@
+package bit.basic.obj2;
+
+public class ObjectEx2 {
+	private String msg;
+	public ObjectEx2() {
+		
+	}
+	public static void main(String[] args) {
+		
+	}
+}

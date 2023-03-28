@@ -1,0 +1,16 @@
+package bit.basic.obj1;
+
+public class SubClass01 extends SuperClass {
+	private int subClass1Value;
+	public SubClass01(int subClass1Value) {
+		super();
+		this.subClass1Value = subClass1Value;
+	}
+
+	@Override
+	public void actionProcess() {
+		// TODO Auto-generated method stub
+		System.out.println("SubClass01");
+	}
+	
+}

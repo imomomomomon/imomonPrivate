@@ -1,0 +1,8 @@
+package bit.basic.obj2;
+
+public class ObjectEx1 {
+	private int cnt;
+	public static void main(String[] args) {
+		ObjectEx1 o = new ObjectEx1();
+	}
+}

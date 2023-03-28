@@ -1,0 +1,6 @@
+package Practice;
+
+public class GenericSingleton<T> {
+	private static GenericSingleton<T> inst 
+		= new GenericSingleton<T>();
+}

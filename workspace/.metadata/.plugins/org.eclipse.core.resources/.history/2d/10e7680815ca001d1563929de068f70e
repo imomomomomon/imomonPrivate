@@ -1,0 +1,12 @@
+package Practice;
+
+public class GenericSingleton<T> {
+	private GenericSingleton() {
+	}
+	private static Object inst;
+	private Object getInst() {
+		if(inst == null)
+			inst = new T();
+		return inst;
+	}
+}

@@ -1,0 +1,11 @@
+package bit.basic.obj1;
+
+public class SubClass01 extends SuperClass {
+
+	@Override
+	public void actionProcess() {
+		// TODO Auto-generated method stub
+		System.out.println("SubClass01");
+	}
+	
+}

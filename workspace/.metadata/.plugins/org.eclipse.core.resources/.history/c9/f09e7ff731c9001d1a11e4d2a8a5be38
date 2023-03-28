@@ -1,0 +1,9 @@
+package bit.basic.obj1;
+
+//키워드를 정의.
+//
+public class ObjectEx1 {
+	public static void main(String[] args) {
+		
+	}
+}

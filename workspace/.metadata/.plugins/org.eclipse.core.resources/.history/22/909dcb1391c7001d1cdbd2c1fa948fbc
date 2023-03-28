@@ -1,0 +1,22 @@
+package bit.basic.variable;
+	/*
+	 * Variable Scope(변수 영역)
+	 * local -> Stack 지역, 
+	 * instance -> Heap 지역, 
+	 * static -> Method(static, class) 지역
+	 * 
+	 * Class(설계도(속성+기능)) -> Object(객체) 생성
+	 * Object(데이터 - 기능을 갖춘)
+	*/
+public class VariableEx1 {
+	
+	private static String staticVar = "전역변수";
+	
+	public void variableMethd1() {
+		
+	}
+	public static void main(String[] args) {
+		String loaclVar = "지역변수";
+		String instanceVar = new String("변수");
+	}
+}

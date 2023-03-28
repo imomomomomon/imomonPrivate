@@ -1,0 +1,37 @@
+package bit.basic.obj2;
+
+import java.util.Scanner;
+
+public class ActionProcess {
+	private Scanner scanner = new Scanner(System.in);
+	
+	public void menu() {
+		while(true) {
+			System.out.println("1.Login 2.List 3.Delete 4.Modify 5.Exit");
+			String command = "";
+			switch (scanner.nextInt()) {
+			case 1:
+				command="login";
+				break;
+			case 2:
+				command="list";
+				break;
+			case 3:
+				command="delete";
+				break;
+			case 4:
+				command="modify";
+				break;
+			case 5:
+				command="exit";
+				return;
+			default:
+				command="Error";
+				break;
+			}
+		}
+	}
+	public static void main(String[] args) {
+		new ActionProcess().menu();
+	}
+}
