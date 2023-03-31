@@ -1,36 +1,30 @@
 package bit.test.demo;
 
+import java.util.Arrays;
+
 public class ActionTest2 {
-	private InstanceClass inst;
-	
 	public static void main(String[] args) {
-		ActionTest2 ex = new ActionTest2();
-		ex.action();
+		 int arr[] = {23,54,52,1,2,84,57,4};
+		 
+		 ActionTest2 ex = new ActionTest2();
+		 ex.sort(arr);
+		 System.out.println(Arrays.toString(arr));
 	}
 	
-	public void action() {
-		StaticClass.getInst().print();
+	public void sort(int []arr) {
+		int min = 0;
 		
-		inst = new InstanceClass();
-		inst.print();
-	}
-}
-
-class StaticClass {
-	private StaticClass() {}
-	private static StaticClass inst;
-	public static StaticClass getInst() {
-		if(inst == null)
-			inst = new StaticClass();
-		return inst;
-	}
-	public void print() {
-		System.out.println("Static Class");
-	}
-}
-
-class InstanceClass {
-	public void print() {
-		System.out.println("instance Class");
+		for(int i = 0; i < arr.length - 1; i++) {
+			min = i;
+			for(int j = i+1; j < arr.length; j++) {
+				if(arr[j] < arr[min])
+					min = j;
+			}
+			if(min != i) {
+				int temp = arr[i];
+				arr[i] = arr[min];
+				arr[min] = temp;
+			}
+		}
 	}
 }
