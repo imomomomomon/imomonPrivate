@@ -60,31 +60,13 @@ public class ControlDog {
 	
 	public void checkObs(String[] park,int[] answer, int pos, int inc) {
 		
-//		if(pos == 0) {
-//			for(int i = answer[0]; i <= answer[0] + inc; i++)
-//			{
-//				if(park[i].charAt(answer[1]) == 'X')
-//					return;
-//			}
-//			
-//		} else if (pos == 1) {
-//			for(int i = answer[1]; i <= park[answer[0]].length(); i++)
-//			{
-//				if(park[answer[0]].charAt(i) == 'X')
-//					return;
-//			}
-//		}
-//		
-//		answer[pos] += inc;
-//		if(pos == 0) {
-		
-//			if(answer[0] < 0 || answer[0] >= park.length)
-//				answer[0] = 0;
-//		} else if(pos == 1) {
-//			if(answer[1] < 0 || answer[1] >= park[answer[0]].length())
-//				answer[1] = 0;
-//		}
-		
-		
+		if(pos == 0) {
+			for (int i = 0; i < inc; i++) {
+				if ((answer[0]-1 > 0 && answer[0] + 1 < park.length)) {
+					//if(park[i].charAt(answer[1]) == 'X')
+				}
+			}
+		} else if (pos == 1) {
+		}
 	}
 }
