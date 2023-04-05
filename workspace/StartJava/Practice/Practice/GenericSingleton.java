@@ -1,6 +1,5 @@
 package Practice;
 
-public abstract class GenericSingleton<T> {
-	private GenericSingleton() {
-	}
+public class GenericSingleton<T> {
+	private static Object inst = null;
 }

@@ -1,4 +1,4 @@
-package bit.basic.collection;
+package bit.app.board;
 
 import java.io.IOException;
 import java.util.*;
@@ -109,7 +109,7 @@ public class ListEx1 {
 			}
 			case 6: {
 				ListDao.getInst().saveData();
-				break;
+				break; 
 			}
 			case 7: {
 				ListDao.getInst().loadData();

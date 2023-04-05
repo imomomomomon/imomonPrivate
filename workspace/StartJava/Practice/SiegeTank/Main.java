@@ -1,29 +1,18 @@
-package bit.app.obj1;
+package SiegeTank;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 
-
-
-public class WindowFrame extends Frame{
+public class Main extends Frame implements Runnable {
 	
-	Rectangle rect = new Rectangle(20,40,50,50);
-	Color color = new Color(255,0,0);
+	final String path = "D:/자료/image/tank1.png";
+	Image tank;
+	Thread th;
+	Image offImg;
+	Graphics offScreen;
 	
-	Image img;
-	Graphics img_g;
-	boolean isBuffer = false;
-	
-	final int speed = 5;
-	int width = 500;
-	int height = 500;
-	
-	public WindowFrame() {
+	public Main() {
+		
 		this.addWindowListener(
 				new WindowListenerAdapter() {
 					
@@ -40,57 +29,63 @@ public class WindowFrame extends Frame{
 					@Override
 					public void keyPressed(KeyEvent e) {
 						// TODO Auto-generated method stub
-						super.keyPressed(e);
-						moveRect(e.getKeyCode());
+						System.out.println(e.getKeyCode());
+						if(e.getKeyCode() == 27)
+							System.exit(0);
 					}
 					
 				});
+	
+		tank = Toolkit.getDefaultToolkit().getImage("D:/자료/image/siege01.png");
+		
+		th = new Thread(this);
+        th.start();
 	}
+	
+	public void run() {
+        while (th != null) {
+            repaint();
+            try {
+                th.sleep(40);
+            } catch (InterruptedException e) {}
+        }
+    }
 	
 	@Override
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
-		
-		if(isBuffer) {
-			img = createImage(width,height);
-			img_g = img.getGraphics();
-			paintComponents(g);
-			drawRect(g);
-			g.drawImage(img,0,0,null);
-			
-		} else {
-			paintComponents(g);
-			drawRect(g);
-		}
-
-		isBuffer = !isBuffer;
-		repaint();
+		int w = this.getSize().width;
+        int h = this.getSize().height;
+        
+        if (offScreen == null) {
+            try {
+            	offImg = createImage(w, h);
+                offScreen = offImg.getGraphics();
+            } catch (Exception e) {
+                offScreen = null;
+            }
+        }
+        if (offScreen != null) {
+        	drawImg(offScreen,w,h);
+            g.drawImage(offImg, 0, 0, this);
+        }
 	}
 	
-	private void drawRect(Graphics g) {
-		g.setColor(color);
-		g.fillRect(rect.x,rect.y,rect.width,rect.height);
+	public void update(Graphics g) {
+		paint(g);
 	}
 	
-	private void moveRect(int ketValue) {
-		switch (ketValue) {
-			case 38://up
-				rect.y -= speed;
-				break;
-			case 40://down
-				rect.y += speed;
-				break;
-			case 37://left
-				rect.x -= speed;
-				break;
-			case 39://right
-				rect.x += speed;
-				break;
-		}
+	private void drawImg(Graphics g,int w, int h) {
+		g.clearRect(0, 0, w, h);
+		g.drawImage(tank,100,100,null);
+		g.drawString("Normal Mode", w / 2, 50);
 	}
 	
 	public static void main(String[] args) {
-		WindowFrame wf = new WindowFrame();
+		Main main = new Main();
+		main.setSize(500,500);
+		main.setResizable(false);
+		main.setVisible(true);
 	}
 }
 
@@ -186,5 +181,4 @@ abstract class WindowListenerAdapter implements WindowListener {
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
 	}
-	
 }

@@ -1,4 +1,4 @@
-package bit.basic.collection;
+package bit.app.board;
 
 import java.io.Serializable;
 
