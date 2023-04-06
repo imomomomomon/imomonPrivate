@@ -53,11 +53,11 @@ public class ListDao {
 	}
 	
 	public void saveData() {
-		FileManager.getInst().writeFile(list);
+		FileManager.getInst().writeFile(list,"test.dat");
 	}
 	
 	@SuppressWarnings("unchecked")
 	public void loadData() {
-		list = (ArrayList<BoardBean>)FileManager.getInst().readFile();
+		list = (ArrayList<BoardBean>)FileManager.getInst().readFile("test.dat");
 	}
 }
