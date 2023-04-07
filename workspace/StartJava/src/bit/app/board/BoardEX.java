@@ -3,7 +3,7 @@ package bit.app.board;
 import java.io.IOException;
 import java.util.*;
 
-public class ListEx1 {
+public class BoardEX {
 	private Scanner scanner = new Scanner(System.in);
 	public void add() {
 		BoardBean bean = new BoardBean();
@@ -26,27 +26,12 @@ public class ListEx1 {
 			}
 			bean.setNo(no);
 		}
+		System.out.print("Password :");
+		String password = scanner.next();
+		bean.setPassword(password);
 		
-//		System.out.print("Title :");
-//		String title = scanner.next();
-//		bean.setTitle(title);
-//		System.out.print("Writer :");
-//		String writer = scanner.next();
-//		bean.setWriter(writer);
-//		System.out.print("Contents :");
-//		String contents = scanner.next();
-//		bean.setContents(contents);
-//		System.out.print("Password :");
-//		String password = scanner.next();
-//		bean.setPassword(password);
-		Calendar c = Calendar.getInstance();
-		String regdate = 
-				String.valueOf(c.get(Calendar.YEAR)).concat(
-						String.valueOf(c.get(Calendar.MONTH)+1)).concat(
-								String.valueOf(c.get(Calendar.DATE)));
-		bean.setRegdate(regdate);
+		insertBeanValue(bean);
 		ListDao.getInst().insertList(bean);
-		System.out.println(bean);
 	}
 	public void list() {
 		ListDao.getInst().showList();
@@ -54,20 +39,26 @@ public class ListEx1 {
 	public void info() {
 		BoardBean result = search();
 		if(result != null) {
-			System.out.println(result.toString());
+			System.out.println();
+			System.out.println("No : " + result.getNo() 
+							+ "/ Writer : " + result.getWriter());
+			System.out.println("Pass : " + result.getPassword());
+			System.out.println("Date : " + result.getRegdate());
+			System.out.println("-Contents-");
+			System.out.println(result.getContents());
+			System.out.println();
+		} else {
+			System.err.println("찾으시는 값이 없습니다.");
 		}
 	}
 	public void modify() {
-		BoardBean result = search();
+		BoardBean result = checkPassword();
 		if(result != null) {
-			System.out.print("Title :");
-			String title = scanner.next();
-			result.setTitle(title);
-			System.out.println(result.toString());
+			insertBeanValue(result);
 		}
 	}
 	public void delete() {
-		BoardBean result = search();
+		BoardBean result = checkPassword();
 		if(result != null) {
 			if(ListDao.getInst().deleteBean(result)) {
 				System.out.println("삭제완료");
@@ -80,7 +71,7 @@ public class ListEx1 {
 		while (true) {
 			System.out.println(
 					"1.Add 2.List 3.Info 4.Modify "
-					+ "5.Delete 6.Save 7.Open 8.Exit"
+					+ "5.Delete 6.Save 7.Exit"
 					);
 			int index = insertInteger();
 			if(index == -1)
@@ -108,35 +99,29 @@ public class ListEx1 {
 				break;
 			}
 			case 6: {
-				ListDao.getInst().saveData();
+				if(ListDao.getInst().saveData())
+					System.out.println("파일저장성공");
+				else
+					System.out.println("파일저장실패");
 				break; 
 			}
 			case 7: {
-				ListDao.getInst().loadData();
-				break;
-			}
-			case 8: {
 				System.out.println("Program Terminate");
 				return;
 			}
 			default:
+				System.err.println("번호를 잘못 입력하셨습니다.");
 			}
 		}
 		
 	}
 	private BoardBean search() {
 		BoardBean result = ListDao.getInst().searchBean(insertNo());
-		
-		if(result == null) {
-			System.out.println("입력된 값의 Bean이 존재하지 않습니다.");
-			System.out.println();
-		}
-		
 		return result;
 	}
 	private int insertNo() {
 		int no = 0;
-		System.out.print("No :");
+		System.out.print	("No :");
 		no = insertInteger();
 		
 		return no;
@@ -155,8 +140,50 @@ public class ListEx1 {
 		
 		return value;
 	}
+	private BoardBean checkPassword() {
+		BoardBean temp = search();
+		if(temp == null) {
+			System.err.println("찾으시는 값이 없습니다.");
+			return null;
+		}
+		
+		System.out.print("Password :");
+		String password = scanner.next();
+		if(password.equals(temp.getPassword())) {
+			return temp;
+		} else 			
+			System.err.println("비밀번호가 틀렸습니다.");
+		
+		return null;
+	}
+	private void insertBeanValue(BoardBean bean) {
+		System.out.print("Title :");
+		String title = scanner.next();
+		bean.setTitle(title);
+		System.out.print("Writer :");
+		String writer = scanner.next();
+		bean.setWriter(writer);
+		{
+			System.out.println("Contents : 마지막 단어 [^]입력시 종료");
+			String content = "";
+			while(true) {
+				content += scanner.next();
+				if(content.charAt(content.length()-1) == '^')
+					break;
+				content += "\n";
+			}
+			bean.setContents(content);
+		}
+		Calendar c = Calendar.getInstance();
+		String regdate = 
+				String.valueOf(c.get(Calendar.YEAR)).concat(
+						String.valueOf(c.get(Calendar.MONTH)+1)).concat(
+								String.valueOf(c.get(Calendar.DATE)));
+		bean.setRegdate(regdate);
+	}
 	public static void main(String[] args) throws IOException {
-		ListEx1 ex = new ListEx1();
+		BoardEX ex = new BoardEX();
+		ListDao.getInst().loadData();
 		ex.menu();
 	}
 }

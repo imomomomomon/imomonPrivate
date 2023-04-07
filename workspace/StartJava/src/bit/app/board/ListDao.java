@@ -12,6 +12,7 @@ public class ListDao {
 		return inst;
 	}
 	
+	private final String path = "test.dat";
 	private ArrayList<BoardBean> list = 
 			new ArrayList<BoardBean>();
 	
@@ -28,13 +29,17 @@ public class ListDao {
 	}
 	
 	public void showList() {
+		if(list.isEmpty()) System.err.println("자료가 없습니다.");
 		for (Iterator<BoardBean> iterator = list.iterator(); iterator.hasNext();) {
 			BoardBean boardBean = (BoardBean) iterator.next();
-			System.out.println(boardBean.toString());
+			System.out.println("No: " + boardBean.getNo() 
+			+ "/ title : "+ boardBean.getTitle()
+			+ "/ date : "+ boardBean.getRegdate());
 		}
 	}
 	
 	public BoardBean searchBean(int no) {
+		if(list.isEmpty()) return null;
 		for (Iterator<BoardBean> iterator = list.iterator(); iterator.hasNext();) {
 			BoardBean boardBean = (BoardBean) iterator.next();
 			if(boardBean.getNo() == no)
@@ -52,12 +57,20 @@ public class ListDao {
 		return list.remove(bean);
 	}
 	
-	public void saveData() {
-		FileManager.getInst().writeFile(list,"test.dat");
+	public boolean saveData() {
+		return FileManager.getInst().writeFile(list,path);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public void loadData() {
-		list = (ArrayList<BoardBean>)FileManager.getInst().readFile("test.dat");
+		System.out.println("절대경로/"+ path +" 로드 중..");
+		
+		Object temp = FileManager.getInst().readFile(path);
+		if(temp == null)
+			System.err.println("파일이 존재하지 않습니다.");
+		else {
+			list = (ArrayList<BoardBean>)temp;
+			System.out.println("파일로드성공");
+		}
 	}
 }

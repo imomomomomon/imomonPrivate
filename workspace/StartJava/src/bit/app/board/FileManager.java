@@ -11,15 +11,17 @@ public class FileManager {
 		 return inst;
 	 }
 	 
-	 public void writeFile(Object obj, String path) {
+	 public boolean writeFile(Object obj, String path) {
 			try(ObjectOutputStream oos = 
 					new ObjectOutputStream(
 					new BufferedOutputStream(
 					new FileOutputStream(path)))) {
 				oos.writeObject(obj);
+				return true;
 			} catch (Exception e) {
 				// TODO: handle exception
-				e.getStackTrace();
+				//e.getStackTrace();
+				return false;
 			}
 	 }
 	 
